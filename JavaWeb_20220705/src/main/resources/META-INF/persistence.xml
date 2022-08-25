@@ -7,12 +7,13 @@
 	<persistence-unit name="demo" transaction-type="RESOURCE_LOCAL">
     
         <class>jpa.entity.Person</class>
+        <class>jpa.entity.Employee</class>
         
         <properties>
             <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
             <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
             <property name="javax.persistence.jdbc.url" 
-                      value="jdbc:sqlite:C:/Users/MB-207/eclipse-workspace/JavaWeb_20220705/db/webdb.db"/>
+                      value="jdbc:sqlite:C:/Users/MB-207/git/JavaWeb_20220705-2-/JavaWeb_20220705/db/webdb.db"/>
             <property name="javax.persistence.jdbc.user" value=""/>
             <property name="javax.persistence.jdbc.password" value=""/>
         </properties>

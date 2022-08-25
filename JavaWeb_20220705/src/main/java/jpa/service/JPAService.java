@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import jpa.entity.Person;
+import jpa.entity.Employee;
 
 public class JPAService {
 	private static EntityManagerFactory emf;
@@ -19,6 +20,21 @@ public class JPAService {
 			emf = Persistence.createEntityManagerFactory("demo");
 		}
 		em = emf.createEntityManager();
+	}
+	//查詢全部
+	public List<Employee> queryEmployee(){
+		return em.createQuery("form Employee e",Employee.class).getResultList();
+	}
+	//找單筆
+	public Employee getEmployee(Integer id){
+		return em.find(Employee.class, id);
+	}
+	
+	public synchronized void addEmployee(Employee employee) {
+		EntityTransaction etx = em.getTransaction(); // 取得交易物件(交易:新增,修改,刪除)
+		etx.begin(); // 開始
+		em.persist(employee);  // 存入 person
+		etx.commit(); // 提交
 	}
 	
 	// 新增
